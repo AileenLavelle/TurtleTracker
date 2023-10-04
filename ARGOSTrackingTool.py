@@ -9,7 +9,7 @@
 # Date:   Fall 2023
 #--------------------------------------------------------------
 #Ask user for a date
-user_date = '7/3/2003' #input("Enter a date: ")
+user_date = input("Enter a date: ")
 #Create a variable pointing to the data file
 file_name = './Data/Raw/Sara.txt'
 
@@ -58,6 +58,10 @@ for item in date_dict.items():
     value= item[1]
     if value == user_date:
         keys.append(key)
+
+# Report whether no keys were found
+if len(keys) == 0:
+    print(f"Sara was not located on {user_date}")
 
 #loop through keys and report locations
 for key in keys:
