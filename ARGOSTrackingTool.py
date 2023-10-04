@@ -30,8 +30,10 @@ for lineString in line_list:
     #check if line is a data line
     if lineString[0] in ("#","u"):
         continue
+
 #Split the string into a list of data items
     lineData = lineString.split()
+
     #Extract items in list into variables
     record_id = lineData[0]
     obs_date = lineData[2]
@@ -40,7 +42,8 @@ for lineString in line_list:
     obs_lon = lineData[7]
 
 #add  items to dictionaries
-    date_dict[record_id]=obs_date
-    location_dict[record_id]=(obs_lat, obs_lon)
+    if obs_lc in ("1","2","3"):
+        date_dict[record_id]=obs_date
+        location_dict[record_id]=(obs_lat, obs_lon)
     #Print the location of sara
     #print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
